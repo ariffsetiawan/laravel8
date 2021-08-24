@@ -17,7 +17,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
                 </div>
 
                 <!-- Content Row -->
@@ -31,7 +31,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Users</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $user ?? 0 }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-user fa-2x text-gray-300"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,11 +31,7 @@ Route::get('/register', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return view('modules.dashboard.index', [
-        'title' => 'Dashboard'
-    ]);
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // Route::get('/users', function () {
 //     return view('modules.users.index', [
