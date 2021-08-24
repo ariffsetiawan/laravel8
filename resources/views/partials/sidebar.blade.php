@@ -24,7 +24,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="/user">
+        <a class="nav-link" href="/users">
             <i class="fas fa-fw fa-user"></i>
             <span>Users</span></a>
     </li>

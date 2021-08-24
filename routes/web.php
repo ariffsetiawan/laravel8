@@ -35,8 +35,8 @@ Route::get('/dashboard', function () {
     ]);
 });
 
-Route::get('/user', function () {
-    return view('modules.user.index', [
+Route::get('/users', function () {
+    return view('modules.users.index', [
         'title' => 'Users'
     ]);
 });
