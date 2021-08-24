@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +36,10 @@ Route::get('/dashboard', function () {
     ]);
 });
 
-Route::get('/users', function () {
-    return view('modules.users.index', [
-        'title' => 'Users'
-    ]);
-});
+// Route::get('/users', function () {
+//     return view('modules.users.index', [
+//         'title' => 'Users'
+//     ]);
+// });
+
+Route::resource('users', UserController::class);
