@@ -16,3 +16,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('pages.login', [
+        'title' => 'Login'
+    ]);
+});
+
+Route::get('/register', function () {
+    return view('pages.register', [
+        'title' => 'Register'
+    ]);
+});
+
+Route::get('/dashboard', function () {
+    return view('modules.dashboard.index', [
+        'title' => 'Dashboard'
+    ]);
+});
+
+Route::get('/user', function () {
+    return view('modules.user.index', [
+        'title' => 'Users'
+    ]);
+});
