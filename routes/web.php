@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,24 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('pages.login', [
-        'title' => 'Login'
-    ]);
-});
-
-Route::get('/register', function () {
-    return view('pages.register', [
-        'title' => 'Register'
-    ]);
-});
+Route::get('/login', [PageController::class, 'login']);
+Route::get('/register', [PageController::class, 'register']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
-
-// Route::get('/users', function () {
-//     return view('modules.users.index', [
-//         'title' => 'Users'
-//     ]);
-// });
-
 Route::resource('users', UserController::class);
