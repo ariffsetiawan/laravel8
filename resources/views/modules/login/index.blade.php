@@ -20,19 +20,28 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" action="/login" method="post">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                            id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address...">
+                                        <input type="email" name="email" class="form-control form-control-user @error('email') is-invalid @enderror"
+                                            id="email" aria-describedby="emailHelp"
+                                            placeholder="Enter Email Address..." autofocus value="{{ old('email') }}">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form-control-user"
+                                            id="password" placeholder="Password">
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <a href="/dashboard" class="btn btn-primary btn-user btn-block my-4">
-                                        Login
-                                    </a>
+                                    <button class="btn btn-primary btn-user btn-block my-4" type="submit">Login</button>
                                 </form>
                                 <hr>
                                 <div class="text-center my-4">
