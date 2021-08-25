@@ -53,7 +53,7 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        return redirect('/users')->with('success','New user succesfully created.');
+        return redirect('/users')->with('success','New user created successfully.');
     }
 
     /**
@@ -75,7 +75,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('modules.users.edit', [
+            'title' => 'Edit User',
+            'user' => $user
+        ]);
     }
 
     /**
@@ -87,7 +90,26 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'email' => 'required|email:dns',
+            'password' => 'max:255'
+        ]);
+
+        $user->first_name =  $validatedData['first_name'];
+        $user->last_name = $validatedData['last_name'];
+        $user->email = $validatedData['email'];
+        if (!empty($validatedData['password'])) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+            $user->password = $validatedData['password'];
+        }
+    
+        $user->save();
+
+        //User::update($validatedData);
+
+        return redirect('/users')->with('success','User updated successfully.');
     }
 
     /**

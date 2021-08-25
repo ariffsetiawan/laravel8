@@ -53,7 +53,7 @@
                                                     <td>{{ $user->first_name.' '.$user->last_name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-info btn-icon-split">
+                                                        <a href="/users/{{ $user->id }}/edit" class="btn btn-info btn-icon-split">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-edit"></i>
                                                             </span>
