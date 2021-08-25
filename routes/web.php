@@ -29,4 +29,6 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::get('users/delete/{id}', [UserController::class, 'delete']);
 Route::resource('users', UserController::class)->middleware('auth');

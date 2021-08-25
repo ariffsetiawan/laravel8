@@ -59,7 +59,7 @@
                                                             </span>
                                                             <span class="text">Edit</span>
                                                         </a>
-                                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                                        <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" id="deleteButton" data-target="#deleteModal" data-attr="/users/delete/{{ $user->id }}">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-trash"></i>
                                                             </span>
@@ -86,6 +86,28 @@
 
     </div>
     <!-- End of Content Wrapper -->
+
+<!-- delete modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <div>
+                    <!-- the result to be displayed apply here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spinner-border" role="status" style="display: none;" id="loader">
+    <span class="sr-only">Loading...</span>
+</div>
     
 @endsection
 
@@ -97,5 +119,33 @@
 
 <!-- Page level custom scripts -->
 <script src="/js/demo/datatables-demo.js"></script>
+
+<script>
+    // display delete modal
+    $(document).on('click', '#deleteButton', function(event) {
+        event.preventDefault();
+        let href = $(this).attr('data-attr');
+        $.ajax({
+            url: href,
+            beforeSend: function() {
+                $('#loader').show();
+            },
+            success: function(result) {
+                $('#deleteModal').modal("show");
+                $('#modalBody').html(result).show();
+            }, 
+            complete: function() {
+                $('#loader').hide();
+            }, 
+            error: function(jqXHR, testStatus, error) {
+                console.log(error);
+                alert("Page " + href + " cannot open. Error:" + error);
+                $('#loader').hide();
+            },
+            timeout: 8000
+        })
+    });
+
+</script>
     
 @endsection
