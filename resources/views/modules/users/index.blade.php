@@ -42,7 +42,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th width="20%">Action</th>
+                                            <th width="25%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,13 +53,13 @@
                                                     <td>{{ $user->first_name.' '.$user->last_name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>
-                                                        <a href="/users/{{ $user->id }}/edit" class="btn btn-info btn-icon-split">
+                                                        <a href="/users/{{ $user->id }}/edit" class="btn btn-info btn-icon-split btn-sm">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-edit"></i>
                                                             </span>
                                                             <span class="text">Edit</span>
                                                         </a>
-                                                        <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" id="deleteButton" data-target="#deleteModal" data-attr="/users/delete/{{ $user->id }}">
+                                                        <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" id="deleteButton" data-target="#deleteModal" data-attr="/users/delete/{{ $user->id }}">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-trash"></i>
                                                             </span>
