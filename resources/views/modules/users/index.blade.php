@@ -2,7 +2,7 @@
 
 @section('styles')
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -23,13 +23,15 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-                        <a href="#" class="btn btn-success btn-icon-split shadow-sm">
+                        <a href="/users/create" class="btn btn-success btn-icon-split shadow-sm">
                             <span class="icon text-white-50">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="text">Create New</span>
                         </a>
                     </div>
+
+                    @include('components.alerts')
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -90,10 +92,10 @@
 @section('scripts')
 
 <!-- Page level plugins -->
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="js/demo/datatables-demo.js"></script>
+<script src="/js/demo/datatables-demo.js"></script>
     
 @endsection
