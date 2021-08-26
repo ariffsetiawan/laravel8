@@ -59,12 +59,15 @@
                                                             </span>
                                                             <span class="text">Edit</span>
                                                         </a>
+
+                                                        @if ($user->id != auth()->user()->id)
                                                         <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" id="deleteButton" data-target="#deleteModal" data-attr="/users/delete/{{ $user->id }}">
                                                             <span class="icon text-white-50">
                                                                 <i class="fas fa-trash"></i>
                                                             </span>
                                                             <span class="text">Delete</span>
                                                         </a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             @endforeach
